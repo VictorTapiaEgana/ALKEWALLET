@@ -1,6 +1,9 @@
-const btnLogin = document.getElementById('btnLogin');
+document.addEventListener("DOMContentLoaded", () => {
+  const btnLogin = document.getElementById('btnLogin');
 
-btnLogin.addEventListener('click', (e) => {
+  if (!btnLogin) return; //Evita error en consola al cargar la pagina
+
+  btnLogin.addEventListener('click', (e) => {
 
     e.preventDefault();
 
@@ -11,4 +14,8 @@ btnLogin.addEventListener('click', (e) => {
       // console.log(`Usuario: ${email}, Password: ${password}`);
       window.location.href = 'menu.html';
     }
+  })
+
 })
+
+
