@@ -30,3 +30,7 @@
    background-color: var(--bs-primary);
   color: #fff;
 }
+
+.nav-link{
+  font-size: 18px;
+}
