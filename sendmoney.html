@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
+
+  <link rel="stylesheet" href="./css/sendmoney.css">
+
+  <title>Alke Wallet - Estado de Cuenta</title>
+
+</head>
+
+<body class="p-2">
+
+      <div  class="card">
+          <div id="card-menu" class="card-body p-2">
+            <section class="card-header w-full d-flex justify-content-between align-items-center mb-4">
+              <section>
+                 <i class="bi bi-wallet2"></i> 
+                 <a href="index.html" class="navbar-brand fw-bold text-decoration-none" >
+                    ALKE WALLET
+                 </a>   
+              </section>            
+               
+              <section class="position-relative d-inline-block">
+                  <img id="avatar" src="./images/avatar.webp" alt="imagen avatar" class="img-fluid rounded-circle my-3" width="40">
+                  <span class="badge-status"></span>
+              </section>  
+            </section>              
+
+            <ul class="nav nav-pills text-center mb-3 d-flex justify-content-center" role="tablist">
+
+              <li class="nav-item">
+                <a href="menu.html" class="nav-link">
+                  Inicio
+                </a>
+              </li>
+              
+              <li class="nav-item">
+                <a href="deposit.html" class="nav-link" >
+                  Depocitar
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="sendmoney.html" class="nav-link" >
+                  Enviar
+                </a>
+              </li>
+              
+
+              <li class="nav-item">
+                <a href="transactions.html" class="nav-link" >
+                  Transacciónes
+                </a>
+              </li>    
+                       
+            </ul>
+
+            <section class="card">
+                <span class="card-body d-flex flex-column justify-content-center align-items-center">
+                    <div class="card-title d-flex justify-content-center" >
+                      <h3>Enviar dinero</h3>                      
+                    </div>                      
+                    
+                    <!-- <form class="d-flex flex-column gap-2">
+                      <label for="inputCantidad">Monto a depositar</label>
+                      <input id="inputCantidad" name="inputCantidad" type="number" class="form-control" placeholder="$ 5.000">
+
+                      <button id="btnConfirmar" type="button" class="btn btn-success">Confirmar</button>
+                      <a href="menu.html" type="button" class="btn btn-warning">Volver</a>
+
+                      
+                       <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                          <div class="toast-header text-primary">                            
+
+                             <i class="bi bi-wallet2"></i> 
+                              <strong class="me-auto"> &nbsp; ALKE WALLET</strong>
+                              <small>Ahora</small>
+
+                              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+
+                          </div>
+
+                          <div class="toast-body text-primary">
+                             Deposito Realizado exitosamente
+                          </div>
+
+                        </div>
+                      </div>
+                    </form> -->
+                   
+                    <!-- <img src="images/deposit.png" width="115" alt="imagende depocito de divisa" class="img-fluid"/> -->
+                    
+                </span> 
+
+                
+            </section>
+
+      </div>
+
+
+
+
+
+
+
+
+  <!-- <script src="./js/jquery-3.7.1.min.js"></script> -->
+  <script src="./js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->
+  <script src="./js/script-sendmoney.js"></script>
+
+</body>
+</html>
