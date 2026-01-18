@@ -1,20 +1,44 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const btnLogin = document.getElementById('btnLogin');
+//validar email
+function ValidarCorreo(correo){      
+  const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return regex.test(correo)
+}   
 
-  if (!btnLogin) return; //Evita error en consola al cargar la pagina
+document.addEventListener("DOMContentLoaded", () => {    
 
   btnLogin.addEventListener('click', (e) => {
 
-    e.preventDefault();
+    e.preventDefault();    
 
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+    var validado = true
 
-    if (email && password) {        
-      // console.log(`Usuario: ${email}, Password: ${password}`);
-      window.location.href = 'menu.html';
+    if (!ValidarCorreo($('#email').val())){      
+
+      $('#errorCorreo').html('Ingrese un correo electrónico válido.')
+       validado = false 
+
+    }else{
+
+      $('#errorCorreo').html('')
+
+    }    
+
+    if($('#password').val().length < 3){
+
+      $('#errorContraseña').html('Ingrese minimo 3 caracteres')
+      validado =  false  
+
+    }else{
+
+      $('#errorContraseña').html('')
+
     }
-  })
+
+    if (validado){
+      window.location.href = 'menu.html'
+    }
+
+ })
 
 })
 
