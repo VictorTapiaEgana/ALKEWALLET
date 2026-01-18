@@ -1,22 +1,23 @@
-const arrayClientes = [
+const arrayTransacciones = [
   {
-    label:'Juan Rojas - ITAU',
-    value:'Juna Rojas',
+    nombre:'Juan Rojas',
+    banco:'ITAU',
+    monto:'15.000'
   },
   {
-    label:'Carolina Jorquera - BCI',
-    value:'Carolina Jorquera',
+    nombre:'Carolina Jorquera',
+    banco:'BCI',
+    monto:'45.000'
   },
   {
-    label:'Eduardo Nuñez - B-CHILE',
-    value:'Eduardo Nuñez',
-  },
+    nombre:'Eduardo Nuñez',
+    banco:'B-CHILE',
+    monto:'8.000'
+  }
 ]
 
 document.addEventListener('DOMContentLoaded',() => {
 
-  $('#inputNombre').autocomplete({
-    source: arrayClientes
-  })  
+  tabla = $('#tableBody')
 
 })
