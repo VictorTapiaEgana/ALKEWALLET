@@ -15,6 +15,6 @@ const arrayClientes = [
 
 document.addEventListener('DOMContentLoaded',()=>{
   // console.table(arrayClientes)
-
   
+
 })
