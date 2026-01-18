@@ -18,6 +18,19 @@ const arrayTransacciones = [
 
 document.addEventListener('DOMContentLoaded',() => {
 
-  tabla = $('#tableBody')
+  var tabla = $('#tableBody')
+  var fila =''
+
+  arrayTransacciones.map((data,index) =>{
+      fila += `<tr>
+                  <th scope="col">${ index + 1 }</th>
+                  <th scope="col">${ data.nombre }</th>
+                  <th scope="col">${ data.banco }</th>
+                  <th scope="col">${ data.monto }</th>
+                </tr>                
+                `
+    })
+
+  tabla.html(fila)
 
 })
