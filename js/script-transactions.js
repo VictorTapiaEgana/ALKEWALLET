@@ -13,14 +13,10 @@ const arrayClientes = [
   },
 ]
 
-
-
-document.addEventListener('DOMContentLoaded',()=>{
+document.addEventListener('DOMContentLoaded',() => {
 
   $('#inputNombre').autocomplete({
     source: arrayClientes
-  })
-
-  
+  })  
 
 })
