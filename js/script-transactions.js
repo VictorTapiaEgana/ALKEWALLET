@@ -1,20 +1,26 @@
 const arrayClientes = [
   {
-    nombre:'Juan Rojas',
-    banco:'ITAU',
+    label:'Juan Rojas - ITAU',
+    value:'Juna Rojas',
   },
   {
-    nombre:'Carolina Jorquera',
-    banco:'BCI',
+    label:'Carolina Jorquera - BCI',
+    value:'Carolina Jorquera',
   },
   {
-    nombre:'Eduardo Nuñez',
-    banco:'CHILE',
+    label:'Eduardo Nuñez - B-CHILE',
+    value:'Eduardo Nuñez',
   },
 ]
 
+
+
 document.addEventListener('DOMContentLoaded',()=>{
-  // console.table(arrayClientes)
+
+  $('#inputNombre').autocomplete({
+    source: arrayClientes
+  })
+
   
 
 })
