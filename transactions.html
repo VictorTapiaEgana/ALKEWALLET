@@ -68,18 +68,25 @@
                     </div>                      
                     
                     <form class="d-flex flex-column gap-1">
-                      
-                      <label for="inputNombre">Buscar </label>
+
+                      <label for="inputNombre">Nombre destinatario</label>
                       <div class="input-group">
                           <span class="input-group-text" id="basic-addon1">
                           <i class="bi bi-search"></i>
                         </span>
-                        <input name="inputNombre" type="number" class="form-control" placeholder="10.000">
+                        <input name="inputNombre" type="number" class="form-control" placeholder="Pedro Carcuro">
                       </div>    
 
                        <label for="inputTransaction" class="">Cantidad</label>
-                       <input name="inputTransaction" type="number" class="form-control" placeholder="10.000">
-                       <button type="button" class="btn btn-success">Transferir</button>
+                       <div class="input-group">
+                        <span class="input-group-text">
+                          <i class="bi bi-currency-dollar"></i>
+                        </span>
+                        <input name="inputTransaction" type="number" class="form-control" placeholder="10.000">
+                      </div>
+
+                     <button type="button" class="btn btn-success">Transferir</button>
+                       
                     </form>
 
 
