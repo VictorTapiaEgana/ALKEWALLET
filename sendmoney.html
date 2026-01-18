@@ -64,7 +64,7 @@
             <section class="card">
                 <span class="card-body d-flex flex-column justify-content-center align-items-center">
                     <div class="card-title d-flex justify-content-center" >
-                      <h3>Transacciónes</h3>                      
+                      <h3>Envio de Dinero</h3>                      
                     </div>                      
                     
                     <form class="d-flex flex-column gap-1">
@@ -75,20 +75,40 @@
                           <i class="bi bi-search"></i>
                         </span>
                         <input id="inputNombre" type="text" class="form-control" placeholder="Pedro Carcuro">
-                      </div>    
+                      </div>   
+                      <small id="errorNombre" class="text-dark fw-bold"></small> 
 
                        <label for="inputTransaction" class="">Cantidad</label>
                        <div class="input-group">
                         <span class="input-group-text">
                           <i class="bi bi-currency-dollar"></i>
                         </span>
-                        <input name="inputTransaction" type="number" class="form-control" placeholder="10.000">
+                        <input id="inputTransaction" name="inputTransaction" type="text" class="form-control" placeholder="10.000">
                       </div>
+                      <small id="errorDinero" class="text-dark fw-bold"></small> 
 
-                     <button type="button" class="btn btn-success">Transferir</button>
+                     <button  id="btnEnviar" type="button" class="btn btn-success">Enviar Dinero</button>
                        
                     </form>
+                      <!-- MENSAJE DE CONFIRMACION DE DEPOSITO -->
+                       <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                          <div class="toast-header text-primary">                            
 
+                             <i class="bi bi-wallet2"></i> 
+                              <strong class="me-auto"> &nbsp; ALKE WALLET</strong>
+                              <small>Ahora</small>
+
+                              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+
+                          </div>
+
+                          <div id="ToastMsg" class="toast-body text-primary">
+                             Dinero enviado exitosamente
+                          </div>
+
+                        </div>
+                      </div>
 
                 </span> 
 
@@ -111,7 +131,7 @@
   <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
 
   
-  <script src="./js/script-transactions.js"></script>
+  <script src="./js/script-sendmoney.js"></script>
 
 </body>
 </html>
