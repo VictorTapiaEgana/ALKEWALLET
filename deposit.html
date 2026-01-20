@@ -63,13 +63,16 @@
 
             <section class="card">
                 <span class="card-body d-flex flex-column justify-content-center align-items-center">
-                    <div class="card-title d-flex justify-content-center" >
-                      <h3>Depositar</h3>                      
+                    <div class="card-title d-flex justify-content-center flex-column" >
+                      <h3>Saldo Actual 
+                        <span id="saldoActual" class="text-primary"></span>                        
+                      </h3>                                            
                     </div>                      
                     
                     <form class="d-flex flex-column gap-2">
                       <label for="inputCantidad">Monto a depositar</label>
                       <input id="inputCantidad" name="inputCantidad" type="number" class="form-control" placeholder="$ 5.000">
+                      <small id="errorCantidad" class="text-dark text-center fw-bold"></small>
 
                       <button id="btnConfirmar" type="button" class="btn btn-success">Confirmar</button>
                       <a href="menu.html" type="button" class="btn btn-warning">Volver</a>
@@ -87,7 +90,7 @@
 
                           </div>
 
-                          <div class="toast-body text-primary">
+                          <div id="menajeTranserencia" class="toast-body text-primary">
                              Deposito Realizado exitosamente
                           </div>
 
@@ -111,7 +114,7 @@
 
 
 
-  <!-- <script src="./js/jquery-3.7.1.min.js"></script> -->
+  <script src="./js/jquery-3.7.1.min.js"></script>
   <script src="./js/bootstrap.bundle.min.js"></script>
   <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->
   <script src="./js/script-deposit.js"></script>
