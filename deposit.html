@@ -71,7 +71,14 @@
                     
                     <form class="d-flex flex-column gap-2">
                       <label for="inputCantidad">Monto a depositar</label>
-                      <input id="inputCantidad" name="inputCantidad" type="number" class="form-control" placeholder="$ 5.000">
+                      
+                      <div class="input-group">
+                        <span class="input-group-text">
+                          <i class="bi bi-currency-dollar"></i>
+                        </span>
+                        <input id="inputCantidad" name="inputCantidad" type="number" class="form-control text-center" placeholder="5.000">
+                      </div>
+
                       <small id="errorCantidad" class="text-dark text-center fw-bold"></small>
 
                       <button id="btnConfirmar" type="button" class="btn btn-success">Confirmar</button>

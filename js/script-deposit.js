@@ -1,6 +1,6 @@
 let SaldoInicial = 10000;
 
-function ActualizarSaldo(saldoNuevo) {
+function RealizarDeposito(saldoNuevo) {
   
   $('#saldoActual').text(`$ ${(SaldoInicial + saldoNuevo).toLocaleString()}`);
 }
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
     let Validar = true;
     
     if ($('#inputCantidad').val() === '' || $('#inputCantidad').val() <= 0) {      
-      $('#errorCantidad').text('Ingrese un monto');
+      $('#errorCantidad').text('Ingrese un valor mayor a $ 0');
       Validar = false;
     }
 
@@ -30,11 +30,11 @@ document.addEventListener("DOMContentLoaded", (e) => {
       
       saldoActual += parseInt($('#inputCantidad').val());
       // console.log(saldoActual);
-      ActualizarSaldo(saldoActual);     
+      RealizarDeposito(saldoActual);     
       
       const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLive)
       
-      $('.toast-body').html(`Deposito de ${parseInt($('#inputCantidad').val(), 10).toLocaleString()} realizado exitosamente<br>nuevo saldo: ${(Number(SaldoInicial) + Number(saldoActual)).toLocaleString()}`);                                     
+      $('.toast-body').html(`Deposito de $ ${parseInt($('#inputCantidad').val(), 10).toLocaleString()} realizado exitosamente<br>nuevo saldo: $ ${(Number(SaldoInicial) + Number(saldoActual)).toLocaleString()} ✔` );                                     
 
       $('#inputCantidad').val('');
       $('#errorCantidad').text('');
