@@ -29,9 +29,37 @@ function cargarDatos() {
    $('#tableBody').html(Fila);
 }
 
+function guardarContacto() {
+
+  let Contacto = $('#inputContacto').val();
+  let Banco = $('#inputBanco').val();
+
+  if (Contacto && Banco) {
+   arrayClientes.push({
+                      label: `${Contacto} - ${Banco}`,
+                      value: Contacto,
+   })
+
+   $('#inputNombre').autocomplete({
+    source: arrayClientes
+   })  
+
+   cargarDatos()
+
+   $('#inputContacto').val('')
+   $('#inputBanco').val('')
+
+   $('#ModalContactos').modal('hide')
+
+  }
 
 
-document.addEventListener('DOMContentLoaded',() => {
+
+
+}
+
+document.addEventListener('DOMContentLoaded',() => { 
+  
 
   cargarDatos()
 
@@ -82,11 +110,5 @@ document.addEventListener('DOMContentLoaded',() => {
     }
 
   })  
-
-
-
-
-
-
 
 })

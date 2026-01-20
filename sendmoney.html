@@ -62,7 +62,7 @@
             </ul>
 
             <section class="card">
-                <span class="card-body d-flex flex-column justify-content-center align-items-center">
+                <div class="card-body d-flex flex-column justify-content-center align-items-center">
                     <div class="card-title d-flex justify-content-center" >
                       <h3>Envio de Dinero</h3>                      
                     </div>                      
@@ -124,29 +124,62 @@
                           
                         </tbody>
                       </table>
+                      <!-- Agregar contacto -->
+                       <button id="agregarContacto" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalContactos">
+                          Agregar contacto
+                        </button>                   
 
+                    </div>                 
+            </section>           
 
-                </span> 
-                
-            </section>
-
+          </div>
       </div>
 
+ <!-- MODAL agregar contacto -->
+  <div class="modal fade" id="ModalContactos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-person-plus"></i> Agregar contacto</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
 
+            <section class="d-flex flex-column gap-2">
 
+                <label for="inputContacto">Nombre contacto</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="basic-addon1">
+                    <i class="bi bi-person"></i>
+                  </span>
+                  <input id="inputContacto" type="text" class="form-control" placeholder="Pedro Carcuro">                  
+                </div>  
 
+                <label for="inputNombre">Nombre banco</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="basic-addon1">
+                    <i class="bi bi-bank"></i>
+                  </span>
+                  <input id="inputBanco" type="text" class="form-control" placeholder="ITAU - BCI - CHILE">
+                </div>  
 
+            </section>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-success" onclick="guardarContacto()">Guardar contacto</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-
-
-  <script src="./js/bootstrap.bundle.min.js"></script>  
-
-  <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">  
-  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-  <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
 
   
-  <script src="./js/script-sendmoney.js"></script>
 
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">    
+   <script src="./js/jquery-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>    
+  <script src="./js/bootstrap.bundle.min.js"></script>  
+  <script src="./js/script-sendmoney.js"></script>
 </body>
 </html>
