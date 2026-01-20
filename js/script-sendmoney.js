@@ -13,9 +13,55 @@ const arrayClientes = [
   },
 ]
 
-document.addEventListener('DOMContentLoaded',() => {
+function cargarDatos() {
+   let Fila ='';
+   
+   arrayClientes.forEach(cliente => {
+    
+    
+     Fila += `<tr>
+                <th scope="row">1</th>
+                <td>${cliente.value}</td>
+                <td>${cliente.label.split(' - ')[1]}</td>                
+              </tr>`;
+   });
+   
+   $('#tableBody').html(Fila);
+}
+
+function guardarContacto() {
+
+  let Contacto = $('#inputContacto').val();
+  let Banco = $('#inputBanco').val();
+
+  if (Contacto && Banco) {
+   arrayClientes.push({
+                      label: `${Contacto} - ${Banco}`,
+                      value: Contacto,
+   })
+
+   $('#inputNombre').autocomplete({
+    source: arrayClientes
+   })  
+
+   cargarDatos()
+
+   $('#inputContacto').val('')
+   $('#inputBanco').val('')
+
+   $('#ModalContactos').modal('hide')
+
+  }
+
+
+
+
+}
+
+document.addEventListener('DOMContentLoaded',() => { 
   
-  var validar = true;
+
+  cargarDatos()
 
   $('#inputNombre').autocomplete({
     source: arrayClientes
@@ -24,6 +70,7 @@ document.addEventListener('DOMContentLoaded',() => {
   // BOTON ENVIAR
   btnEnviar.addEventListener('click',()=>{
 
+    var validar = true;
     const regex = /^\d+$/;
 
     if ($('#inputNombre').val() === '' || $('#inputNombre').val().lenght > 6 ){
@@ -54,7 +101,7 @@ document.addEventListener('DOMContentLoaded',() => {
 
       const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)      
 
-      $('#ToastMsg').html(`Transferido ${$('#inputTransaction').val()} a: ${$('#inputNombre').val()}`)
+      $('#ToastMsg').html(`Transferido $${Number($('#inputTransaction').val()).toLocaleString('es-CL')} a:<strong> ${$('#inputNombre').val()}</strong>`)
       toastBootstrap.show()
 
       $('#inputNombre').val('') 
@@ -63,11 +110,5 @@ document.addEventListener('DOMContentLoaded',() => {
     }
 
   })  
-
-
-
-
-
-
 
 })
