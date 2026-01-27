@@ -4,11 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <link rel="stylesheet" href="./css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">  
 
-  <link rel="stylesheet" href="./css/login.css">
+  <link rel="stylesheet" href="../css/login.css">
 
   <title>Alke Wallet - Login</title>
 </head>
@@ -16,7 +15,7 @@
 
       <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">
+            <a class="navbar-brand fw-bold" href="../index.html">
                 <i class="bi bi-wallet2"></i> ALKE WALLET
             </a>  
         </div>
@@ -42,24 +41,39 @@
             </div>
           </div>
           <button id="btnLogin" type="button" class="btn btn-primary w-100">Iniciar Sesión</button>
-          <small class="mt-2 d-block">
-              No tiene una cuenta? &nbsp 
-              <a href="register.html">Regístrese aquí</a>
-          </small>
+          
         </form>
       </div>
     </div>
 
+  <!-- MENSAJE DE ERROR DE CREDENCIALES -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header text-primary">                            
 
+        <i class="bi bi-wallet2"></i> 
+        <strong class="me-auto"> &nbsp; ALKE WALLET</strong>
+        <small>Ahora</small>
+
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+
+    </div>
+
+    <div id="ToastMsg" class="toast-body text-dark">
+        <i class="bi bi-person-fill-x"></i>
+        Credenciales incorrectas
+    </div>
+
+  </div>
+</div>
 
 
 
 
   
-  <script src="./js/jquery-3.7.1.min.js"></script>
-  <script src="./js/bootstrap.bundle.min.js"></script>
-  <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->
-  <script src="./js/script-login.js"></script>
+  <script src="../js/jquery-3.7.1.min.js"></script>
+  <script src="../js/bootstrap.bundle.min.js"></script>  
+  <script src="../js/script-login.js"></script>
 
 </body>
 </html>

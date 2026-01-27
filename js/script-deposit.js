@@ -1,13 +1,26 @@
-let SaldoInicial = 10000;
+let SaldoInicial = Number(localStorage.getItem('saldo')) || 100000;
 
 function RealizarDeposito(saldoNuevo) {
   
-  $('#saldoActual').text(`$ ${(SaldoInicial + saldoNuevo).toLocaleString()}`);
+  let nuevoTotal = SaldoInicial + Number(saldoNuevo);
+  $('#saldoActual').text(`$ ${nuevoTotal.toLocaleString()}`);
+  
+  localStorage.setItem('saldo', nuevoTotal);
+  
+  Movimiento = {
+    nombre:'ADMIN',
+    banco:'CHILE',
+    monto:saldoNuevo,
+    Movimiento:'Deposito'
+  }
+
+  arrayMovimientos=JSON.parse(localStorage.getItem('arrayMovimientos')) || [];
+  arrayMovimientos.push(Movimiento);
+  localStorage.setItem('arrayMovimientos', JSON.stringify(arrayMovimientos));  
 }
 
-document.addEventListener("DOMContentLoaded", (e) => {
 
-  e.preventDefault();
+$(document).ready(function() {
 
   let BtnConfirmar = $('#btnConfirmar');
 
@@ -43,6 +56,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
     }
 
-  });
+  }); 
 
 })
