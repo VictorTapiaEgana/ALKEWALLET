@@ -1,4 +1,6 @@
-const arrayClientes = [
+let arrayClientes = JSON.parse(localStorage.getItem('arrayClientes')) || [];
+
+const Clientes = [
   {
     label:'Juan Rojas - ITAU',
     value:'Juna Rojas',
@@ -8,10 +10,16 @@ const arrayClientes = [
     value:'Carolina Jorquera',
   },
   {
-    label:'Eduardo Nuñez - B-CHILE',
+    label:'Eduardo Nuñez - CHILE',
     value:'Eduardo Nuñez',
   },
 ]
+
+if (arrayClientes.length === 0) {
+    arrayClientes.push(...Clientes);
+}
+
+localStorage.setItem('arrayClientes', JSON.stringify(arrayClientes));
 
 function cargarDatos() {
    let Fila ='';
@@ -53,61 +61,85 @@ function guardarContacto() {
 
   }
 
-
-
-
 }
 
-document.addEventListener('DOMContentLoaded',() => {   
+$(document).ready(function () {
+  
+    cargarDatos()
 
-  cargarDatos()
+    $('#inputNombre').autocomplete({
+      source: arrayClientes
+    })  
 
-  $('#inputNombre').autocomplete({
-    source: arrayClientes
-  })  
+    // BOTON ENVIAR
+  $('#btnEnviar').click(function() {
 
-  // BOTON ENVIAR
-  btnEnviar.addEventListener('click',()=>{
+      let validar = true;
+      const regex = /^\d+$/;
 
-    var validar = true;
-    const regex = /^\d+$/;
+      if ($('#inputNombre').val() === '' || $('#inputNombre').val().lenght > 6 ){
 
-    if ($('#inputNombre').val() === '' || $('#inputNombre').val().lenght > 6 ){
-
-      $('#errorNombre').html('Ingrese un nombre valido')
-      validar=false
-
-    }else{
-
-      $('#errorNombre').html('')
-
-    }
-
-    if (!regex.test($('#inputTransaction').val())) {
-
-        $('#errorDinero').html('Ingrese un monto valido o mayor a cero')
+        $('#errorNombre').html('Ingrese un nombre valido')
         validar=false
 
-    }else{
+      }else{
 
-        $('#errorDinero').html('')
+        $('#errorNombre').html('')
 
-    }
+      }
 
-    if(validar){
+      if (!regex.test($('#inputTransaction').val())) {
 
-      toastLiveExample = document.getElementById('liveToast')
+          $('#errorDinero').html('Ingrese un monto valido o mayor a cero')
+          validar=false
 
-      const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)      
+      }else{
 
-      $('#ToastMsg').html(`Transferido $${Number($('#inputTransaction').val()).toLocaleString('es-CL')} a:<strong> ${$('#inputNombre').val()}</strong>`)
-      toastBootstrap.show()
+          $('#errorDinero').html('')
 
-      $('#inputNombre').val('') 
-      $('#inputTransaction').val('') 
+      }
 
-    }
+      if(validar){
 
-  })  
+        // GUARDAR EL MOVIMIENTO
+        let Movimientos = {};
 
-})
+        nombreABuscar = $('#inputNombre').val();
+
+        const resultado = $.grep(arrayClientes, function(cliente) {
+          return cliente.value === nombreABuscar;
+        });        
+
+        let banco = resultado[0].label.split('-')[1].trim();       
+
+        Movimientos = {
+          nombre: $('#inputNombre').val(),
+          banco: banco,  
+          monto: $('#inputTransaction').val(),          
+          Movimiento: 'Transferencia'
+        }
+
+        arrayMovimientos = JSON.parse(localStorage.getItem('arrayMovimientos')) || [];
+        arrayMovimientos.push(Movimientos);
+        localStorage.setItem('arrayMovimientos', JSON.stringify(arrayMovimientos));
+
+        // ACTUALIZAR EL SALDO
+        let saldoNuevo = Number(localStorage.getItem('saldo')) - Number($('#inputTransaction').val());
+        localStorage.setItem('saldo', saldoNuevo);
+
+        // MOSTRAR EL TOAST
+        toastLiveExample = document.getElementById('liveToast')
+
+        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)      
+
+        $('#ToastMsg').html(`Transferido $${Number($('#inputTransaction').val()).toLocaleString('es-CL')} a:<strong> ${$('#inputNombre').val()}</strong>`)
+        toastBootstrap.show()
+
+        $('#inputNombre').val('') 
+        $('#inputTransaction').val('') 
+
+      }
+
+  })
+
+});
