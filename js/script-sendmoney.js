@@ -58,8 +58,7 @@ function guardarContacto() {
 
 }
 
-document.addEventListener('DOMContentLoaded',() => { 
-  
+document.addEventListener('DOMContentLoaded',() => {   
 
   cargarDatos()
 

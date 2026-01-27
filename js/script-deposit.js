@@ -1,18 +1,48 @@
-document.addEventListener("DOMContentLoaded", (event) => {
+let SaldoInicial = 100000;
 
-  const toastTrigger = document.getElementById('btnConfirmar')
-  const toastLiveExample = document.getElementById('liveToast')
+function RealizarDeposito(saldoNuevo) {
+  
+  $('#saldoActual').text(`$ ${(SaldoInicial + saldoNuevo).toLocaleString()}`);
+}
 
-  if (toastTrigger) {
-    const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+document.addEventListener("DOMContentLoaded", (e) => {
 
-    toastTrigger.addEventListener('click', () => {
-      toastBootstrap.show()
+  e.preventDefault();
+
+  let BtnConfirmar = $('#btnConfirmar');
+
+  const toastLive = document.getElementById('liveToast');
+
+  $('#saldoActual').text(`$ ${SaldoInicial.toLocaleString()}`);
+
+  let saldoActual = 0;
+
+  BtnConfirmar.click(function() {
+
+    let Validar = true;
+    
+    if ($('#inputCantidad').val() === '' || $('#inputCantidad').val() <= 0) {      
+      $('#errorCantidad').text('Ingrese un valor mayor a $ 0');
+      Validar = false;
+    }
+
+    if(Validar){
       
-    })
+      saldoActual += parseInt($('#inputCantidad').val());
+      // console.log(saldoActual);
+      RealizarDeposito(saldoActual);     
+      
+      const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLive)
+      
+      $('.toast-body').html(`Deposito de $ ${parseInt($('#inputCantidad').val(), 10).toLocaleString()} realizado exitosamente<br>nuevo saldo: $ ${(Number(SaldoInicial) + Number(saldoActual)).toLocaleString()} ✔` );                                     
 
-    toastTrigger
+      $('#inputCantidad').val('');
+      $('#errorCantidad').text('');
 
-  }
+      toastBootstrap.show()
+
+    }
+
+  });
 
 })

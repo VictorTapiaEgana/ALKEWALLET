@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
+  
 
-  <link rel="stylesheet" href="./css/deposit.css">
+  <link rel="stylesheet" href="../css/deposit.css">
 
   <title>Alke Wallet - Estado de Cuenta</title>
 
@@ -21,13 +21,13 @@
             <section class="card-header w-full d-flex justify-content-between align-items-center mb-4">
               <section>
                  <i class="bi bi-wallet2"></i> 
-                 <a href="index.html" class="navbar-brand fw-bold text-decoration-none" >
+                 <a href="../index.html" class="navbar-brand fw-bold text-decoration-none" >
                     ALKE WALLET
                  </a>   
               </section>            
                
               <section class="position-relative d-inline-block">
-                  <img id="avatar" src="./images/avatar.webp" alt="imagen avatar" class="img-fluid rounded-circle my-3" width="40">
+                  <img id="avatar" src="../images/avatar.webp" alt="imagen avatar" class="img-fluid rounded-circle my-3" width="40">
                   <span class="badge-status"></span>
               </section>  
             </section>              
@@ -41,7 +41,7 @@
               </li>
               
               <li class="nav-item">
-                <a href="deposit.html" class="nav-link" >
+                <a href="deposit.html" class="nav-link active">
                   Depocitar
                 </a>
               </li>
@@ -63,13 +63,23 @@
 
             <section class="card">
                 <span class="card-body d-flex flex-column justify-content-center align-items-center">
-                    <div class="card-title d-flex justify-content-center" >
-                      <h3>Depositar</h3>                      
+                    <div class="card-title d-flex justify-content-center flex-column" >
+                      <h3>Saldo Actual 
+                        <span id="saldoActual" class="text-primary"></span>                        
+                      </h3>                                            
                     </div>                      
                     
                     <form class="d-flex flex-column gap-2">
                       <label for="inputCantidad">Monto a depositar</label>
-                      <input id="inputCantidad" name="inputCantidad" type="number" class="form-control" placeholder="$ 5.000">
+                      
+                      <div class="input-group">
+                        <span class="input-group-text">
+                          <i class="bi bi-currency-dollar"></i>
+                        </span>
+                        <input id="inputCantidad" name="inputCantidad" type="number" class="form-control text-center" placeholder="5.000">
+                      </div>
+
+                      <small id="errorCantidad" class="text-dark text-center fw-bold"></small>
 
                       <button id="btnConfirmar" type="button" class="btn btn-success">Confirmar</button>
                       <a href="menu.html" type="button" class="btn btn-warning">Volver</a>
@@ -87,7 +97,7 @@
 
                           </div>
 
-                          <div class="toast-body text-primary">
+                          <div id="menajeTranserencia" class="toast-body text-primary">
                              Deposito Realizado exitosamente
                           </div>
 
@@ -95,7 +105,7 @@
                       </div>
                     </form>
                    
-                    <img src="images/deposit.png" width="115" alt="imagende depocito de divisa" class="img-fluid"/>
+                    <img src="../images/deposit.png" width="115" alt="imagende depocito de divisa" class="img-fluid"/>
                     
                 </span> 
 
@@ -104,17 +114,9 @@
 
       </div>
 
-
-
-
-
-
-
-
-  <!-- <script src="./js/jquery-3.7.1.min.js"></script> -->
-  <script src="./js/bootstrap.bundle.min.js"></script>
-  <!-- <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> -->
-  <script src="./js/script-deposit.js"></script>
+  <script src="../js/jquery-3.7.1.min.js"></script>
+  <script src="../js/bootstrap.bundle.min.js"></script>  
+  <script src="../js/script-deposit.js"></script>
 
 </body>
 </html>

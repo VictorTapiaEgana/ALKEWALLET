@@ -4,15 +4,15 @@ function ValidarCorreo(correo){
   return regex.test(correo)
 }   
 
-document.addEventListener("DOMContentLoaded", () => {    
+$(document).ready(function() {
 
-  btnLogin.addEventListener('click', (e) => {
+  $('#btnLogin').click(function(e) {
 
     e.preventDefault();    
 
     var validado = true
 
-    if (!ValidarCorreo($('#email').val())){      
+    if (!ValidarCorreo($('#email').val()) || $('#email').val() === ''){      
 
       $('#errorCorreo').html('Ingrese un correo electrónico válido.')
        validado = false 
@@ -23,9 +23,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }    
 
-    if($('#password').val().length < 3){
+    if($('#password').val().length < 5){
 
-      $('#errorContraseña').html('Ingrese minimo 3 caracteres')
+      $('#errorContraseña').html('Ingrese minimo 5 caracteres, no se permite contraseña en blanco')
       validado =  false  
 
     }else{
@@ -34,12 +34,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-    if (validado){
-      window.location.href = 'menu.html'
+   if (validado) {
+    
+      if ($('#email').val() === 'admin@wallet.cl' && $('#password').val() === 'admin') {
+
+        window.location.href = 'menu.html';
+
+      } else {
+        
+        toastLiveExample = document.getElementById('liveToast')
+        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)              
+        toastBootstrap.show()
+
+      }
     }
 
  })
-
+  
 })
-
-
