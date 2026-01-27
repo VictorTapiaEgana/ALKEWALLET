@@ -1,4 +1,4 @@
-let SaldoInicial = 10000;
+let SaldoInicial = 100000;
 
 function RealizarDeposito(saldoNuevo) {
   
