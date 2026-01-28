@@ -3,7 +3,7 @@ let arrayClientes = JSON.parse(localStorage.getItem('arrayClientes')) || [];
 const Clientes = [
   {
     label:'Juan Rojas - ITAU',
-    value:'Juna Rojas',
+    value:'Juan Rojas',
   },
   {
     label:'Carolina Jorquera - BCI',
@@ -43,14 +43,14 @@ function guardarContacto() {
   let Banco = $('#inputBanco').val();
 
   if (Contacto && Banco) {
-   arrayClientes.push({
-                      label: `${Contacto} - ${Banco}`,
+    arrayClientes.push({
+                        label: `${Contacto} - ${Banco}`,
                       value: Contacto,
-   })
+    })
 
-   $('#inputNombre').autocomplete({
-    source: arrayClientes
-   })  
+    $('#inputNombre').autocomplete({
+      source: arrayClientes
+    })  
 
    cargarDatos()
 
@@ -59,6 +59,10 @@ function guardarContacto() {
 
    $('#ModalContactos').modal('hide')
 
+  }else{
+
+      $('#error').html('Ingrese un nombre y banco')
+    
   }
 
 }
