@@ -30,3 +30,12 @@
 .nav-link{
   font-size: 18px;
 }
+
+.text-Abono{
+  color: rgb(7, 209, 7) !important;
+  font-weight: bolder;
+}
+.text-Transferencia{
+  color: red !important;
+  font-weight: bolder;
+}

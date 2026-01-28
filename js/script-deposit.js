@@ -11,7 +11,7 @@ function RealizarDeposito(saldoNuevo) {
     nombre:'ADMIN',
     banco:'CHILE',
     monto:saldoNuevo,
-    Movimiento:'Deposito'
+    Movimiento:'Abono'
   }
 
   arrayMovimientos=JSON.parse(localStorage.getItem('arrayMovimientos')) || [];
