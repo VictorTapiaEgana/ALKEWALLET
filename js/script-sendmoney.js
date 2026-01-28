@@ -119,8 +119,8 @@ $(document).ready(function () {
         Movimientos = {
           nombre: $('#inputNombre').val(),
           banco: banco,  
-          monto: $('#inputTransaction').val(),          
-          Movimiento: 'Transferencia'
+          monto: parseInt($('#inputTransaction').val()),          
+          Movimiento: 'Transfer.'
         }
 
         arrayMovimientos = JSON.parse(localStorage.getItem('arrayMovimientos')) || [];

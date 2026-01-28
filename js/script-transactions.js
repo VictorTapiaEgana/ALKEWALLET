@@ -1,22 +1,10 @@
-// const arrayTransacciones = [
-//   {
-//     nombre:'Juan Rojas',
-//     banco:'ITAU',
-//     monto:'15.000'
-//   },
-//   {
-//     nombre:'Carolina Jorquera',
-//     banco:'BCI',
-//     monto:'45.000'
-//   },
-//   {
-//     nombre:'Eduardo Nuñez',
-//     banco:'B-CHILE',
-//     monto:'8.000'
-//   }
-// ]
+let arrayTransacciones = JSON.parse(localStorage.getItem('arrayMovimientos')) || [];
 
-document.addEventListener('DOMContentLoaded',() => {
+if (arrayTransacciones.length === 0) {
+  $('#tablaDatos').html('<tr><td colspan="5" class="text-center fw-bold text-dark">No hay movimientos</td></tr>')
+}
+
+$(document).ready(function () {
 
   var tabla = $('#tableBody')
   var fila =''
@@ -24,14 +12,20 @@ document.addEventListener('DOMContentLoaded',() => {
   arrayTransacciones.map((data,index) =>{
 
       fila += `<tr>
-                  <th scope="col">${ index + 1 }</th>
-                  <th scope="col">${ data.nombre }</th>
-                  <th scope="col">${ data.banco }</th>
-                  <th scope="col">${ data.monto }</th>
-                </tr>                
-                `
+                <td>${ index + 1 }</td>
+                <td>${ data.nombre }</td>
+                <td>${ data.banco }</td>
+                <td class="${data.Movimiento == 'Abono' 
+                            ? 'text-Abono' 
+                            : 'text-Transferencia'}">${ data.monto.toLocaleString('es-CL') }</td>
+                <td> 
+                  <span class="badge rounded-pill ${data.Movimiento == 'Abono' 
+                                                    ? 'bg-success' 
+                                                    : 'bg-danger'}">${data.Movimiento}</span>  
+                </td> 
+              </tr>`
       })
 
   tabla.html(fila)
-
+  
 })
