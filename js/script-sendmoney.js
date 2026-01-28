@@ -128,7 +128,9 @@ $(document).ready(function () {
         localStorage.setItem('arrayMovimientos', JSON.stringify(arrayMovimientos));
 
         // ACTUALIZAR EL SALDO
-        let saldoNuevo = Number(localStorage.getItem('saldo')) - Number($('#inputTransaction').val());
+        // let saldoNuevo = Number(localStorage.getItem('saldo')) - Number($('#inputTransaction').val());
+        let saldoNuevo = Number(localStorage.getItem('saldo'))  || 100000 
+        saldoNuevo -= Number($('#inputTransaction').val());
         localStorage.setItem('saldo', saldoNuevo);
 
         // MOSTRAR EL TOAST
