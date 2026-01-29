@@ -73,6 +73,11 @@ La pantalla de transacciones muestra un detalle de los Abonos y transacciones re
 
 
 
+## Desarrollo de GIT
+
+Se crearon 6 ramas durante el desarrollo del Proyecto
+
+![Branches](https://raw.githubusercontent.com/VictorTapiaEgana/ALKEWALLET/refs/heads/master/images/brabches.png)
 
 ## Estructura del Proyecto
 
